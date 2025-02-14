@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+   <style>
+      /* Styling for the navbar */
+      .navbar-brand {
+        font-weight: bold;
+        color:  #333;
+      }
+
+      .navbar-brand:hover {
+        color: black;
+      }
+
+      /* Buttons and links styling */
+      .nav-link {
+        margin: 5px 10px; /* Add spacing between links */
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        background-color: gray;
+        color: #fff !important;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      /* Search bar adjustments */
+      .form-control {
+        width: 300px;
+        transition: width 0.4s ease-in-out;
+      }
+
+      .form-control:focus {
+        width: 350px;
+        outline: none;
+      }
+
+      /* Responsive search bar for smaller screens */
+      @media (max-width: 768px) {
+        .form-control {
+          width: 250px;
+        }
+      }
+      .video-background {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        /* Ensure the video fills the entire background */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Centering the content inside the video container */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;  /* Make the text white for better visibility */
+}
+
+/* Optional: Adjust heading and paragraph styling */
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 1em 0;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ff5733;  /* Adjust color as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #c0392b;
+}
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel-inner img {
+      height: 450px;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .carousel-caption p {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #000;
+      border-radius: 50%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      gap: 1px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+
+    .header img {
+      max-width: 80px; /* Adjust the logo size */
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column; /* Stacks the items vertically on smaller screens */
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .mobile-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.card-body {
+    padding: 16px;
+    background-color: #fff;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #555;
+}
+.coming-soon h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Makes font size responsive */
+    font-weight: bold; /* Makes the text bold */
+    text-align: center; /* Centers the text */
+    margin: 0 auto; /* Ensures proper centering with margins */
+}
+.se4 h1 {
+    font-size: clamp(2rem, 4vw, ); /* Responsive font size */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    margin: 0 auto; /* Ensures proper centering */
+}
+.card1 {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body1 h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-body1 p {
+  font-size: 0.9rem;
+  padding: 30px;
+  color: #555;
+}
+
+.card-img-top1 {
+  border-radius: 8px 8px 0 0;
+  height: 180px;
+  object-fit: cover;
+}
+.card-img-top1 {
+  width: 100%; /* Ensures the image covers the entire card width */
+  height: 200px; /* Sets a consistent height for all images */
+  object-fit: cover; /* Makes sure images maintain aspect ratio and fill the container */
+  border-radius: 8px 8px 0 0; /* Adds rounded corners to the top of the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adds smooth transition effects */
+}
+
+.card-img-top1:hover {
+  transform: scale(1.05); /* Slight zoom-in effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow on hover */
+}
+.letset-news{
+  text-align: center;
+  font-weight: bold;
+}
+.latest-news h3 {
+  font-family: 'Arial', sans-serif; /* Choose a modern font */
+  font-size: 2rem; /* Set the font size */
+  font-weight: bold; /* Make the heading bold */
+  color: #333; /* Set the text color */
+  text-align: center; /* Center align the heading */
+  margin-top: 20px; /* Add some space at the top */
+  margin-bottom: 20px; /* Add some space at the bottom */
+  letter-spacing: 1px; /* Add a slight letter-spacing for better readability */
+  text-transform: uppercase; /* Optional: Make the text uppercase */
+}
+
+.latest-news {
+  width: 100%; /* Make sure the container takes full width */
+  padding: 20px 0; /* Add padding for top and bottom */
+}
+/* Container styling */
+.lateset-phones {
+  display: flex;                      /* Use flexbox layout */
+  justify-content: center;            /* Center content horizontally */
+  align-items: center;                /* Center content vertically */
+  gap: 20px;                          /* Space between the h4 elements */
+  padding: 20px;                      /* Padding around the container */
+  background-color: #f4f4f4;          /* Light gray background */
+  border-radius: 10px;                /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 80%;                     /* Max width to avoid it being too wide */
+  margin: 0 auto;                     /* Center the container in the page */
+}
+
+/* Styling for h4 elements */
+.lateset-phones h4 {
+  margin: 0;                          /* Remove default margin */
+  padding: 10px 20px;                 /* Add padding around the text */
+  font-family: 'Arial', sans-serif;   /* Set a clean font */
+  font-weight: bold;                  /* Bold text */
+  font-size: 18px;                    /* Set font size */
+  color: #333;                        /* Dark gray text color */
+  background-color: #fff;             /* White background for each h4 */
+  border-radius: 5px;                 /* Rounded corners for h4 */
+  text-align: center;                 /* Center text inside h4 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for h4 */
+}
+
+/* Additional responsive design for smaller screens */
+@media (max-width: 600px) {
+  .lateset-phones {
+    flex-direction: column;           /* Stack the items vertically on small screens */
+    gap: 10px;                        /* Reduce gap */
+  }
+
+  .lateset-phones h4 {
+    font-size: 16px;                  /* Adjust font size for smaller screens */
+    padding: 8px 15px;                /* Adjust padding */
+  }
+}
+.lateset-phones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lateset-phones h4 {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes padding */
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect on product row */
+.product-item:hover {
+  background-color: #f1f1f1; /* Light background on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Responsive design: Stack product name and price vertically on small screens */
+@media (max-width: 600px) {
+  .product-item {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align text to the left */
+  }
+
+  .product-header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: flex-start; /* Align header items to the left */
+  }
+
+  .product-item p {
+    margin: 5px 0; /* Adjust spacing for stacked items */
+  }
+}
+/* General Footer Styles */
+.footercolor {
+    background-color: #343536;  /* Gray background */
+    color: #ffffff;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer container */
+.footercolor .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Flexbox settings for the rows */
+.footercolor .row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Column styling for each section */
+.footercolor .col-md-4 {
+    flex: 1;
+    margin-bottom: 20px;
+    max-width: 33.33%; /* Each column takes 1/3 of the space on medium screens */
+    padding: 0 15px;
+}
+
+/* Footer Brand */
+.footercolor h2.footer-brand {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Section titles */
+.footercolor h5 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Links */
+.footercolor a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footercolor a:hover {
+    color: #0d6efd; /* Bootstrap primary color */
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.footercolor .social-icons a {
+    font-size: 1.5rem; /* Increased size for better visibility */
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footercolor .social-icons a:hover {
+    color: #0d6efd;
+}
+
+/* Footer Bottom Text */
+.footercolor small {
+    font-size: 20px;
+    color: #fffefe;
+
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footercolor .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footercolor .col-md-4 {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For mobile screens */
+    .footercolor .text-md-start {
+        text-align: center;
+    }
+
+    .footercolor .col-md-4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footercolor .social-icons {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    #backToTop {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+}
+
+/* For smaller devices like mobile */
+@media (max-width: 576px) {
+    .footercolor h2.footer-brand {
+        font-size: 1.5rem;
+    }
+
+    .footercolor h5 {
+        font-size: 1rem;
+    }
+
+    .footercolor p, 
+    .footercolor address {
+        font-size: 0.8rem;
+    }
+
+    .footercolor small {
+        font-size: 0.7rem;
+    }
+}
+.download-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 10px;
+    font-weight: bold;
+    color:rgba(0, 0, 0, 0.719);
+    background:rgba(128, 128, 128, 0.726);
+    border: 2px solid #fff; /* White Outline Always */
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+.download-btn {
+    border: 2px solid transparent; /* No outline initially */
+}
+
+.download-btn:hover {
+    border-color: #fff; /* White outline on hover */
+}
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AskMe Mobile</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/mobile.html">Mobile Phones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/comparision.html">Comparision</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/features.html">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact2.html">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Brands
+            </a>
+            <ul class="dropdown-menu">     
+              <li><a class="dropdown-item" href="/brands/Apple.html">Apple</a></li>
+              <li><a class="dropdown-item" href="/brands/sumsung1.html">Samsung</a></li>
+              <li><a class="dropdown-item" href="/brands/nokia.html">Nokia</a></li>
+              <li><a class="dropdown-item" href="/brands/google pixel.html">Google Pixel</a></li>
+              <li><a class="dropdown-item" href="/brands/vivo.html">Vivo</a></li>
+              <li><a class="dropdown-item" href="/brands/techno.html">Tecno</a></li>
+              <li><a class="dropdown-item" href="/brands/huawei.html">Huawei</a></li>
+              <li><a class="dropdown-item" href="/brands/infinix.html">Infinix</a></li>
+              <li><a class="dropdown-item" href="/brands/xiaomi.html">Xiaomi</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+        <form class="d-flex" role="search" onsubmit="return searchBrand(event)">
+          <input class="form-control me-2" type="search" id="searchInput" placeholder="Search Brand" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+    </div>
+</nav>
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="https://www.apple.com/ph/iphone-16/images/meta/iphone-16_overview__fcivqu9d5t6q_og.png?202412092052" class="d-block w-100" alt="Vivo Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>i Phone 16</h5>
+          <p>The iPhone 16 series introduces the A18 Bionic chip, delivering 30% faster performance and enhanced energy efficiency. The camera system now features a 48MP main sensor and customizable controls for photography enthusiasts.</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="https://about.att.com/ecms/dam/snr/2019/September2019/StoryLevelBanner/1294%20-%20Apple%20iPhone%20AnnouncementSTORY_LEVEL_BANNER_1600x483.jpg" class="d-block w-100" alt="Xiaomi Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>i Phone 11</h5>
+          <p>The iPhone 11 features a dual-camera system with 12MP ultra-wide and wide lenses, perfect for stunning photos and videos. Powered by the A13 Bionic chip, it offers fast performance and improved battery life.
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.appleshop.pk/wp-content/uploads/2020/03/iPhone-11-Pro-Inner-Banner-1920-X-710-Website.jpg" class="d-block w-100" alt="Samsung Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>i Phone 11Pro</h5>
+          <p>The iPhone 11 Pro boasts a triple-camera system with ultra-wide, wide, and telephoto lenses for pro-level photography. It’s powered by the A13 Bionic chip and features a Super Retina XDR display.
+          </p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="header">
+    <h1>Apple</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJVes3zIvOQqPeQI6Yuth3p1kZeVN-ocplVQ&s" alt="Apple Logo">
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://www.designinfo.in/wp-content/uploads/2024/09/Apple-iPhone-16-Pro-128GB-Black-Titanium-8-485x485-optimized.webp" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone 16 Pro Max 1TB</p>
+        <p>   Rs. 715,499</p>
+       
+    <div class="btn-container">
+      <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+  </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://lahorecentre.com/wp-content/uploads/2024/09/Apple-iPhone-16-Pro-128GB-8GB-RAM-5-1.jpg" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iPhone 16 Pro 256GB</p>
+        <p>  Rs. 511,499</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.phonemart.ng/wp-content/uploads/2024/06/i15-bla.jpeg" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone 15 Pro Max </p>
+        <p>Rs. 474,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://myshop.pk/pub/media/catalog/product/cache/26f8091d81cea4b38d820a1d1a4f62be/_/a/_apple-iphone-14-_-14-plus_-myshop-pk-4_1.jpg" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iPhone 14 Plus</p>
+        <p> Rs. 422,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://pakistani.pk/wp-content/uploads/2021/01/Apple-IPhone-13-Pro-Max-90-1611313037.jpg" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 13 Pro Max </p>
+        <p> Rs. 373,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCxlWFWNVLz_nE7YJR8f1LHdV9ci-OD6F5LcVtQlR1SUcyc8mzgjUdxSm9ZOE-JiDU4Rg&usqp=CAU" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 12 Pro Max</p>
+        <p> Rs. 236,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtbJNJPn3LPfiDMgMBOSApyraT_S-E7gr7OA&s" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone 11 Pro Max</p>
+        <p>Rs. 226,599</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_E8pGDzz29V_6pzmv7glYjuw5yIKt_UKOo0evyX0sQkeUaDjHVs8OQTxu22-hS2lPmmQ&usqp=CAU" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 13 Mini</p>
+        <p>  Rs. 223,399</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://mobilecheck.pk/wp-content/uploads/2023/09/Apple-iPhone-12-Pro-1.png" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 12 Pro</p>
+        <p>  Rs. 220,899</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNJTE7bpWshimxqwZPC6eEodGzFb1gHpflPYHHUldBpGY_rKoIcx2QYdivrYSEHH6n-8U&usqp=CAU" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 11 Pro</p>
+        <p> Rs. 207,799</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7BtMUAHuhKo3f6ABaOtRi7nA9fnIUtj_rhoCGpd565X5rgZWQq3UI2pB8slDfctdAWA4&usqp=CAU" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iPhone XS Max </p>
+        <p> Rs. 167,499</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.priceoye.pk/apple-iphone-12-mini-pakistan-priceoye-afi39-500x500.webp" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 12 Mini</p>
+        <p>  Rs. 157,399 </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://static-01.daraz.pk/p/fec08240e6a4185716b4c39a9e6c4561.jpg" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone XR</p>
+        <p> Rs. 151,799</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm_zxaQQAx8Y0Kb4RtI1gZ8BR8gTc9Efk4LfZAAMtcKLVoKgayMGG4bjOq0Ip8N_Dw9N8&usqp=CAU" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone7 Plus 128GB</p>
+        <p>Rs. 144,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5NbU6bcJd0vR2o-zDr3ZmVf5J-Lm-RzOcCt0gmt2WPJnvCKUpI9OmlZLKi5wl9FUMU8E&usqp=CAU" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone X</p>
+        <p>Rs. 144,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.mega.pk/items_images/Apple+iphone+XS+4GB+RAM+64GB+Storage+Space+Grey+Price+in+Pakistan%2C+Specifications%2C+Features_-_18213.webp" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone XS</p>
+        <p>Rs. 141,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://ultimainformatica.com/710131-thickbox_default/apple-iphone-8-plus-14-cm-55-sim-unica-ios-11-4g-64-gb-gris-70176-70177-70178-70179-70180.jpg" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 8 Plus</p>
+        <p>  Rs. 122,499</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://mobiles.dailypakistan.com.pk/wp-content/uploads/2020/09/ip-2.jpg" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iphone 8</p>
+        <p> Rs. 108,610 </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxfPlRBz-4GCPDa5MU_fWfvJ7FFr-slrU1qUkEafSqyh5exJrFd5GHiXX30gbr7lwUk6U&usqp=CAU" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Apple
+          iPhone 7 Plus 256GB
+          Rs. 96,249</h5>
+          <div class="btn-container">
+            <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+        </div>
+        <p> </p>
+        <p></p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.whatmobile.com.pk/admin/images/Apple/iPhone%20SE%202020/Apple-iPhone-SE-2020-Image-1.jpg" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iPhone SE 2020 </p>
+        <p>  Rs. 92,499</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFUZv9PhMLgiajLVKRtd95MPw49Af30VZ43w&s" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 7 256GB</p>
+        <p> Rs. 90,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmM4J1ryW6fiJTs0GOweybG0wRfIUa7uzL-k8IxdO_XZNqCLAxhuYaK922BvAndWbLfXQ&usqp=CAU" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iphone 6s Plus 128GB</p>
+        <p>Rs. 82,000</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.priceoye.pk/apple-iphone-7-pakistan-priceoye-td5og-500x500.webp" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iPhone 7 Plus</p>
+        <p>Rs. 79,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuuBxyENFbhYhu5jcz2xkDhyVjAeIzJH5Co-vAkE6ei1scFmwJRGO93DA5l65_Gv8WONg&usqp=CAU" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iphone 6</p>
+        <p> Rs. 46,899</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeglCAXi4NLUGiOMVxpPr45E8OYMnhkuFED1fRKCSs7wFReNL1K0a9v9osYIWcqWD-3gQ&usqp=CAU" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone SE</p>
+        <p> Rs. 31,500 </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://3.imimg.com/data3/QP/OU/MY-13408254/apple-iphone-5s-16gb-mobile-white-500x500.jpg" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 5S 16GB </p>
+        <p>Rs. 25,799 </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://i.ebayimg.com/images/g/bTYAAOSwAjZiqEVw/s-l640.jpg" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iphone 7s</p>
+        <p>  N/A</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://m-cdn.phonearena.com/images/articles/354981-image/Apple-iPhone-9-leak.jpg" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 9</p>
+        <p>N/A</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://drop.ndtv.com/TECH/product_database/images/530201370424PM_635_iphone_3g.png" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 3G 8GB</p>
+        <p>Price N/A</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.mega.pk/items_images/Apple+iPhone+4S+32GB+Black+price+in+Pakistan_-_4728.webp" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iphone 4S 32GB</p>
+        <p>Price N/A </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://cdn.myshoptet.com/usr/www.iphonarna.cz/user/shop/big/7302_apple-iphone-se--2020--64gb-white.png?6387f80d" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iphone SE 2</p>
+        <p>Price N/A</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuKt22rFgzeudoP4E9QlQwR5aL1P8nI6ghZXr8osZB_JDn2RS9gfKiDQ2GeJDUV_VNg4w&usqp=CAU" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 5C 32GB</p>
+        <p>  Price N/A</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.igoopple.nl/images/detailed/19/iPhone_5C_blauw_wkcu-4y.jpg" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 5C 16GB</p>
+        <p> Price N/A  </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://vmart.pk/wp-content/uploads/2019/04/products-4890_5s_gray.jpg" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iphone 5S 32GB</p>
+        <p>Price N/A</p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://i.ebayimg.com/images/g/eEwAAOSwWkteT0iu/s-l1200.jpg" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 5S 64GB</p>
+        <p>  Price N/A </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQW9aTsPEi1cItER_wcCNaa3YFANqRZcZdvKBhkyFjKKe06bDMZhFWO32hMHhrQWXqMaYM&usqp=CAU" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iphone 7 Pro</p>
+        <p> Price N/A </p>
+        <div class="btn-container">
+          <a href="/brands feature/Apple (4).docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div><br><br>
+  <div class="coming-soon">
+    <h2>Coming Soon Apple Mobiles</h2>
+  </div><br><br>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6Y-Pxq00mgod-76wn_E2Viv0EldhBOnjUZXcuOnFfHtLY_wcykvffFMqfNXLUOAmMBW4&usqp=CAU" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p> iPhone 16E
+          Expected Price</p>
+        <p> Rs. 229,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.baolongan.vn/image/news/2024/20240915/images/iphone-17-air-1-1726326995327-1726326995846509649095-bao-ong-an.jpg" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iPhone 17 Air
+          Expected Price </p>
+        <p> Rs. 359,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://b2c-contenthub.com/wp-content/uploads/2024/12/iPhone-17-Pro-render.jpg?quality=50&strip=all&w=1200" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone 17
+          Expected Price</p>
+        <p> Rs. 339,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu8mX4wn_K9BQb4x-r0E8IY4DEK4McHfsVN7y25IiVBOEJYN-gt4qrCYCfcwnFxvLUhgg&usqp=CAU" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>  iPhone 17 Pro
+          Expected Price</p>
+        <p>Rs. 514,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://s.yimg.com/ny/api/res/1.2/Xfa5wDZEUYPGLKLwuaPjCQ--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTU0MA--/https://media.zenfs.com/en/toms_guide_826/1a3e1f3b4e4d599072fef058390b7d98" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone 17 Pro Max
+          Expected Price</p>
+        <p>Rs. 573,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGnBU6L8ccqmMmwSbvoSE_cPBj44McXzJ448KtMsHb1gOfi_qnri0RazqUp8t0N27KD9s&usqp=CAU" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Apple</h5>
+        <p>iPhone SE 4
+          Expected Price</p>
+        <p> Rs. 198,999</p>
+      </div>
+    </div>
+  </div><br><br>
+  <div class="se4">
+    <h1>  Apple iPhone SE 4 in News</h1>
+  </div><br><br>
+  <div class="container">
+    <!-- First Row: 3 Cards -->
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://i.ytimg.com/vi/y1HLSicgFSs/sddefault.jpg" class="card-img-top1" alt="iPhone 16">
+          <div class="card-body1">
+            <p class="card-text1">iPhone SE 4 Dummy Units Spotted, Offering First Look at the New Design.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://www.whatmobile.com.pk/control/news/assets/30122024/7c7e96e4203247744a7356f534b562ca.jpg" class="card-img-top1" alt="Samsung Galaxy S24">
+          <div class="card-body1">
+            <p class="card-text1">iPhone SE 4 Might be Cheaper Than Expected, Thanks to Apple's In-house 5G Modem.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQcsM-iAda3tN2mYCaYIa3aXDXeSC1H2auYg&s" class="card-img-top1" alt="Google Pixel 9">
+          <div class="card-body1">
+            <p class="card-text1">Apple iPhone SE 4 Tipped Again With a 48MP Main Camera and 12MP Selfie Shooter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Second Row: 3 Cards -->
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://www.whatmobile.com.pk/control/news/assets/22112024/8d20aafe942a8942454d86013046d5fb.jpg" class="card-img-top1" alt="OnePlus 12">
+          <div class="card-body1">
+            <p class="card-text1">Apple iPhone SE 4 to Replace Both SE 3 & iPhone 14 Price Tag Expected at $600.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQe9jvgpdO0qEWNuaPS39zwXWXlljTPUJ8SA&s" class="card-img-top1" alt="Oppo Find X6 Pro">
+          <div class="card-body1">
+            <p class="card-text1">Apple iPhone SE 4 Plans to Amp Up the Battery and Wireless Charging.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://www.timesbull.com/wp-content/uploads/2025/01/iPhone-SE-4-10.webp" class="card-img-top1" alt="Samsung Galaxy Z Flip 6">
+          <div class="card-body1">
+            <h5 class="card-title1"></h5>
+            <p class="card-text1">Apple iPhone SE 4 Battery & Charging Rumors Show Noteworthy Upgrades.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><div class="product-list">
+    <div class="product-header">
+      <h4>Latest Mobile Phones Models</h4>
+      <h4>Price</h4>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro 12GB</p>
+      <p>Rs. 94999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 256GB</p>
+      <p>Rs. 57999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14</p>
+      <p>Rs. 53999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro Plus</p>
+      <p>Rs. 144999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro</p>
+      <p>Rs. 79999</p>
+    </div>
+    <div class="product-item">
+      <p>Vivo Y200</p>
+      <p>Rs. 65999</p>
+    </div>
+    <div class="product-item">
+      <p>itel A80</p>
+      <p>Rs. 22499</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Poco X7 Pro</p>
+      <p>Rs. 139999</p>
+    </div>
+    <div class="product-item">
+      <p>SEGO Zero 50</p>
+      <p>Rs. 49999</p>
+    </div>
+    <div class="product-item">
+      <p>SEGO Smart 9 HD</p>
+      <p>Rs. 14999</p>
+    </div>
+  </div>
+  <div>
+    <footer class="footercolor">
+      <div class="container">
+          <div class="row text-center text-md-start align-items-start">
+              <div class="col-md-4 mb-4">
+                  <div>
+                      <h2 class="footer-brand mb-3">AskMe Mobile</h2>
+                  </div>
+                  <h5>About Us</h5>
+                  <p>
+                      We are dedicated to providing quick, reliable answers for all your
+                      mobile and tech-related queries. Join us to explore more!
+                  </p>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/mobile.html">Mobile Phones</a></li>
+                    <li><a href="/comparision.html">Comparision</a></li>
+                    <li><a href="/features.html">Feature</a></li>
+                    <li><a href="/contact2.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5>Contact Us</h5>
+                  <address>
+                    Address of the Company: A-65, ACME Co., Street no 12, New York<br><br>
+                     <p>Phone Numbers: +001-28272300, 2466, 2469</p>
+                     Email Address: <a href="webmaster@cellinfo.com" class="text-light">webmaster@cellinfo.com</a>
+                  </address>
+                  <div class="social-icons mt-3">
+                      <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                      <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                      <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="text-center mt-3">
+              <small>&copy; 2025 AskMe Mobile. All Rights Reserved.</small>
+          </div>
+      </div>
+  </footer>
+  </div>
+  <script>
+    function searchBrand(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let searchQuery = document.getElementById("searchInput").value.toLowerCase().trim(); // Get input value
+
+        // Define available brand pages (ensuring correct URL mapping)
+        const brandPages = {
+            "apple": "/brands/Apple.html",
+            "samsung": "/brands/sumsung1.html",
+            "nokia": "/brands/nokia.html",
+            "google pixel": "/brands/google pixel.html",
+            "vivo": "/brands/vivo.html",
+            "tecno": "/brands/techno.html",
+            "huawei": "/brands/huawei.html",
+            "infinix": "/brands/infinix.html",
+            "xiaomi": "/brands/xiaomi.html"
+        };
+
+        // Check if the searched brand exists in the list
+        if (brandPages[searchQuery]) {
+            window.location.href = brandPages[searchQuery]; // Redirect to the respective brand page
+        } else {
+            alert("Brand not found! Please enter a valid brand name.");
+        }
+    }
+</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

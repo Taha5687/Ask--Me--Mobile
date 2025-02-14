@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+   <style>
+      /* Styling for the navbar */
+      .navbar-brand {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .navbar-brand:hover {
+        color: black;
+      }
+
+      /* Buttons and links styling */
+      .nav-link {
+        margin: 5px 10px; /* Add spacing between links */
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        background-color: gray;
+        color: #fff !important;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      /* Search bar adjustments */
+      .form-control {
+        width: 300px;
+        transition: width 0.4s ease-in-out;
+      }
+
+      .form-control:focus {
+        width: 300px;
+        outline: none;
+      }
+
+      /* Responsive search bar for smaller screens */
+      @media (max-width: 768px) {
+        .form-control {
+          width: 250px;
+        }
+      }
+      .video-background {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        /* Ensure the video fills the entire background */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Centering the content inside the video container */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;  /* Make the text white for better visibility */
+}
+
+/* Optional: Adjust heading and paragraph styling */
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 1em 0;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ff5733;  /* Adjust color as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #c0392b;
+}
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel-inner img {
+      height: 450px;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .carousel-caption p {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #000;
+      border-radius: 50%;
+    }
+    h1{
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .mobile-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.card-body {
+    padding: 16px;
+    background-color: #fff;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #555;
+}
+.letset-news{
+  text-align: center;
+  font-weight: bold;
+}
+.latest-news h3 {
+  font-family: 'Arial', sans-serif; /* Choose a modern font */
+  font-size: 2rem; /* Set the font size */
+  font-weight: bold; /* Make the heading bold */
+  color: #333; /* Set the text color */
+  text-align: center; /* Center align the heading */
+  margin-top: 20px; /* Add some space at the top */
+  margin-bottom: 20px; /* Add some space at the bottom */
+  letter-spacing: 1px; /* Add a slight letter-spacing for better readability */
+  text-transform: uppercase; /* Optional: Make the text uppercase */
+}
+
+.latest-news {
+  width: 100%; /* Make sure the container takes full width */
+  padding: 20px 0; /* Add padding for top and bottom */
+}
+/* Container styling */
+.lateset-phones {
+  display: flex;                      /* Use flexbox layout */
+  justify-content: center;            /* Center content horizontally */
+  align-items: center;                /* Center content vertically */
+  gap: 20px;                          /* Space between the h4 elements */
+  padding: 20px;                      /* Padding around the container */
+  background-color: #f4f4f4;          /* Light gray background */
+  border-radius: 10px;                /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 80%;                     /* Max width to avoid it being too wide */
+  margin: 0 auto;                     /* Center the container in the page */
+}
+
+/* Styling for h4 elements */
+.lateset-phones h4 {
+  margin: 0;                          /* Remove default margin */
+  padding: 10px 20px;                 /* Add padding around the text */
+  font-family: 'Arial', sans-serif;   /* Set a clean font */
+  font-weight: bold;                  /* Bold text */
+  font-size: 18px;                    /* Set font size */
+  color: #333;                        /* Dark gray text color */
+  background-color: #fff;             /* White background for each h4 */
+  border-radius: 5px;                 /* Rounded corners for h4 */
+  text-align: center;                 /* Center text inside h4 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for h4 */
+}
+
+/* Additional responsive design for smaller screens */
+@media (max-width: 600px) {
+  .lateset-phones {
+    flex-direction: column;           /* Stack the items vertically on small screens */
+    gap: 10px;                        /* Reduce gap */
+  }
+
+  .lateset-phones h4 {
+    font-size: 16px;                  /* Adjust font size for smaller screens */
+    padding: 8px 15px;                /* Adjust padding */
+  }
+}
+.lateset-phones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lateset-phones h4 {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes padding */
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect on product row */
+.product-item:hover {
+  background-color: #f1f1f1; /* Light background on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Responsive design: Stack product name and price vertically on small screens */
+@media (max-width: 600px) {
+  .product-item {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align text to the left */
+  }
+
+  .product-header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: flex-start; /* Align header items to the left */
+  }
+
+  .product-item p {
+    margin: 5px 0; /* Adjust spacing for stacked items */
+  }
+}
+/* General Footer Styles */
+.footercolor {
+    background-color: #343536;  /* Gray background */
+    color: #ffffff;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer container */
+.footercolor .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Flexbox settings for the rows */
+.footercolor .row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Column styling for each section */
+.footercolor .col-md-4 {
+    flex: 1;
+    margin-bottom: 20px;
+    max-width: 33.33%; /* Each column takes 1/3 of the space on medium screens */
+    padding: 0 15px;
+}
+
+/* Footer Brand */
+.footercolor h2.footer-brand {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Section titles */
+.footercolor h5 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Links */
+.footercolor a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footercolor a:hover {
+    color: #0d6efd; /* Bootstrap primary color */
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.footercolor .social-icons a {
+    font-size: 1.5rem; /* Increased size for better visibility */
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footercolor .social-icons a:hover {
+    color: #0d6efd;
+}
+
+/* Footer Bottom Text */
+.footercolor small {
+    font-size: 20px;
+    color: #fffefe;
+
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footercolor .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footercolor .col-md-4 {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For mobile screens */
+    .footercolor .text-md-start {
+        text-align: center;
+    }
+
+    .footercolor .col-md-4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footercolor .social-icons {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    #backToTop {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+}
+
+/* For smaller devices like mobile */
+@media (max-width: 576px) {
+    .footercolor h2.footer-brand {
+        font-size: 1.5rem;
+    }
+
+    .footercolor h5 {
+        font-size: 1rem;
+    }
+
+    .footercolor p, 
+    .footercolor address {
+        font-size: 0.8rem;
+    }
+
+    .footercolor small {
+        font-size: 0.7rem;
+    }
+}
+/* Add some base styling for the card container */
+.mobile-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.card-body {
+    padding: 16px;
+    background-color: #fff;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #555;
+}
+.card1{
+  width: 18rem; /* Set width to 18rem for uniform size */
+  border: 1px solid #ddd; /* Add border for separation */
+  border-radius: 8px; /* Slightly rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for 3D effect */
+  overflow: hidden; /* Prevent content from overflowing */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
+
+/* Card image */
+.card-img-top1{
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+}
+
+/* Card Body */
+.card-body1{
+  padding: 15px; /* Add padding to the text */
+  text-align: center; /* Center the text inside the card */
+}
+
+/* Card Title */
+.card-title1{
+  font-size: 1.2rem; /* Slightly larger font for the title */
+  font-weight: bold;
+  margin-bottom: 10px; /* Space between title and text */
+}
+
+/* Card Text */
+.card-text1{
+  font-size: 1rem; /* Normal text size */
+  color: #555; /* Grayish text color */
+  line-height: 1.4; /* Increase line height for better readability */
+}
+
+/* Hover effect for cards */
+.card1:hover{
+  transform: translateY(-10px); /* Slightly raise the card */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .card1 {
+    width: 100%; /* Make cards take full width on smaller screens */
+  }
+}
+
+/* Style for the column (for Bootstrap) */
+.col-md-3 {
+  flex: 1 1 22%; /* Ensure the column has some flexibility for different screen sizes */
+  max-width: 22%; /* Limit the maximum width for the cards */
+}
+
+/* Optional: Space out cards even further on larger screens */
+@media (min-width: 992px) {
+  .col-md-3 {
+    flex: 1 1 22%;
+    max-width: 22%;
+  }
+}
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AskMe Mobile</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="mobile.html">Mobile Phones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="comparision.html">Comparision</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="features.html">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact2.html">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Brands
+            </a>
+            <ul class="dropdown-menu">     
+              <li><a class="dropdown-item" href="/brands/Apple.html">Apple</a></li>
+              <li><a class="dropdown-item" href="/brands/sumsung1.html">Samsung</a></li>
+              <li><a class="dropdown-item" href="/brands/nokia.html">Nokia</a></li>
+              <li><a class="dropdown-item" href="/brands/google pixel.html">Google Pixel</a></li>
+              <li><a class="dropdown-item" href="/brands/vivo.html">Vivo</a></li>
+              <li><a class="dropdown-item" href="/brands/techno.html">Tecno</a></li>
+              <li><a class="dropdown-item" href="/brands/huawei.html">Huawei</a></li>
+              <li><a class="dropdown-item" href="/brands/infinix.html">Infinix</a></li>
+              <li><a class="dropdown-item" href="/brands/xiaomi.html">Xiaomi</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+        <form class="d-flex" role="search" onsubmit="return searchBrand(event)">
+          <input class="form-control me-2" type="search" id="searchInput" placeholder="Search Brand" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+    </div>
+</nav>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="10000">
+            <img src="https://arafatelecom.com/wp-content/uploads/2024/10/nokia-page-banner.jpg" class="d-block w-100" alt="Vivo Mobile">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Nokia Mobile</h5>
+              <p>"Nokia Mobile combines durability with timeless design, offering reliable smartphones for all-day use. With advanced camera technology and long-lasting battery life, Nokia ensures a seamless user experience for work and entertainment."</p>
+            </div>
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src="https://selecto.com.pk/cdn/shop/collections/Product-Category-page-banner-phones-Itel.png?v=1725525655" class="d-block w-100" alt="Xiaomi Mobile">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Itel Mobile</h5>
+              <p>Itel Mobile delivers affordability and innovation, making smartphones accessible to everyone. With sleek designs, powerful performance, and user-friendly features, Itel ensures value-packed devices for everyday connectivity."              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://qmobile.com.pk/cdn/shop/files/Banner_-_1.jpg?v=1708781388" class="d-block w-100" alt="Samsung Mobile">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>QMobile</h5>
+              <p>"QMobile offers stylish and budget-friendly smartphones designed for everyday use. With vibrant displays, reliable performance, and advanced camera features, QMobile ensures a seamless and enjoyable mobile experien. </p>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+     <div class="price-category">
+        <h1>Mobile Phone Lookup: Less than 10000 .</h1>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://xmobile.lk/wp-content/uploads/2023/10/Nokia-105-2023.png" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p>105 2023</p>
+          <p>Rs. 4,499</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUzElFrCsfzwXOS9krClt4GzdB14sSvEvfsg&s" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p>2173</p>
+          <p>Rs. 2,300</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://static-01.daraz.pk/p/7151df07d723bf70305d0b859e3a59a5.jpg" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p>i9010 4G  </p>
+          <p>Rs. 4,049</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://qistmarket.com/wp-content/uploads/2023/07/itel-a17.png" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> A17</p>
+          <p>Rs. 9,999</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn81H9zPaRelgndHRswMSTZ0fyetNZ6iQnYQ&s" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>itel </h5>
+          <p> Magic 3</p>
+          <p> Rs. 4,599</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://darazmobile.com/wp-content/uploads/2022/08/download-3.jpg" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> Power 700</p>
+          <p> Rs. 3,699</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://cdn.viettelstore.vn/Images/Product/ProductImage/1625767428.jpeg" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p>it9210</p>
+          <p>Rs. 5,699</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://i0.wp.com/alltech.pk/wp-content/uploads/2022/08/Power700-Core-Black.jpg" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p>Power700 Core</p>
+          <p>Rs. 3,599</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://pinpack.pk/PinPackProductImages/54/1-c1-nokia-6310-(2021)-1rmzsosm.webp" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p>  6310 2021</p>
+          <p>  Rs. 7,800</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.bolnews.com/wp-content/uploads/2022/10/FotoJet-2022-10-03T223922.241.jpg" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p> 105 4G</p>
+          <p>Rs. 4,499</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.jiomart.com/images/product/original/rv02byacqh/nokia-110-4g-with-volte-hd-calls-up-to-32gb-external-memory-fm-radio-wired-wireless-dual-mode-games-torch-charcol-product-images-orv02byacqh-p602669924-2-202306251236.jpg?im=Resize=(420,420)" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>Nokia </h5>
+          <p> 110 4G</p>
+          <p> Rs. 5,449</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/itel-magic-2-max-pakistan-priceoye-ds5ea-270x270.webp" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p>Magic 2 Max</p>
+          <p> Rs. 3,899</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://cdn.homeshopping.pk/product_images/k/868/Magic2max-for-shop-1__81888_zoom.png" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> Magic 2</p>
+          <p>Rs. 3,499</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/989716e30d02edc89c52a133069b71e3.jpg_720x720q80.jpg" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> Value 400</p>
+          <p> Rs. 1,550</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://img.drz.lazcdn.com/static/pk/p/7e9a9de4b0c7c6f20093a0e431bd9577.jpg_720x720q80.jpg" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p>5026</p>
+          <p> Rs. 2,749</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://droidafrica.net/wp-content/uploads/2021/10/A14-MAX-gray-800x800_1_-1-min-1-600x600.png" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> A14 Max</p>
+          <p> Rs. 4,650</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStM0zNV-02JmejDicNGbC_nnBlr64yfb-Lzg&s" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p>   Value 110</p>
+          <p>  Rs. 2,599</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://younismobile.com/cdn/shop/products/itel-Value-100s-Light-Green-1.jpg?v=1661336388" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> Value 100</p>
+          <p> Rs. 2,549</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://images.priceoye.pk/itel-a36-pakistan-priceoye-tnubf-500x500.webp" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> A36</p>
+          <p> Rs. 8,499</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.whatmobile.com.pk/admin/images/Nokia/6300%204G/Nokia-6300-4G-image-1.jpg" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>Nokia   </h5>
+          <p> 6300 4G</p>
+          <p> Rs. 9,500</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9hEKDKH4C6ZC99wEylfpdHeFZdPz2uWcA4A&s" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> E1000 Party 2021</p>
+          <p> Rs. 3,499</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://d1iv6qgcmtzm6l.cloudfront.net/products/lg_wydyqW6Wp8f9RqQ8lPg98viP4PwDGyZs5G06PkGB.jpg" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> E4 Big</p>
+          <p> Rs. 2,899</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/qmobile-e4-2020-pakistan-priceoye-yca5g-500x500.webp" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>  E4 2020</p>
+          <p>Rs. 2,350</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://mobilemall.pk/public_html/images/product/product_1600534328Itel-A25-Price-In-Pakistan.jpg" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>itel</h5>
+          <p> A25</p>
+          <p> Rs. 9,499</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://images.indianexpress.com/2020/10/nokia-225-4g.jpg?w=389" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>Nokia </h5>
+          <p> 225 4G</p>
+          <p> Rs. 5,899</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK6Bqotw9lZRcACH8EZIaEt_xd9uM8sw0f7_1iAEAl4yfhJC_9bn0bIxT5w1SDxwtfDbo&usqp=CAU" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>  Smart i7i</p>
+          <p> Rs. 6,999</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/tecno-pop-3-pakistan-priceoye-zlnvu-500x500.webp" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>Tecno</h5>
+          <p>Pop 3</p>
+          <p>Rs. 9,099</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/nokia-125-pakistan-priceoye-mefc6-500x500.webp" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p>125</p>
+          <p> Rs. 5,999</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/nokia-150-2020-pakistan-priceoye-3uikk-500x500.webp" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p>150 2020</p>
+          <p>Rs. 5,999</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/nokia-5310-2020-pakistan-priceoye-pipc4-500x500.webp" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p> 5310 2020</p>
+          <p>  Rs. 6,999</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://d1iv6qgcmtzm6l.cloudfront.net/product_galleries/lg_71MHw54kgCrGMpa7pcEBuiNInKvk4JZNQpoYxPhb.jpg" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>Telenor</h5>
+          <p> Infinity i5</p>
+          <p>Rs. 9,000</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://d1iv6qgcmtzm6l.cloudfront.net/products/lg_Fo9LYJ00clDt2pxT2ssSBmJfsYIIRqdj6qWEU5lM.png" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p> 110</p>
+          <p>Rs. 5,999</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://rgmprice.com/wp-content/uploads/2021/01/qmobile_lt200-.Price-in-Pakistan-by-RGM-Price.jpg" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p>  105 2019</p>
+          <p>   Rs. 4,999</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://mobiles.dailypakistan.com.pk/wp-content/uploads/2020/09/q.jpg" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> i8i 2019</p>
+          <p>Rs. 7,249</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSL4y-SNF1BniJO1rRfOv3iRImrP9yp-gh2yQ&s" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>i5i 2019</p>
+          <p>  Rs. 6,499</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/qmobile-l3-lite-pakistan-priceoye-667vc-500x500.webp" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>L3 Lite</p>
+          <p> Rs. 1,449</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://images.priceoye.pk/qmobile-i8i-pro-pakistan-priceoye-o91f1-500x500.webp" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>  I8i Pro II</p>
+          <p> Rs. 7,599</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIKe6kD-_0BK4AtfZ5tFOeXUGBYy5MD07nvg&s" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> Hero One</p>
+          <p> Rs. 1,899</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.mega.pk/items_images/QMobile+3310+Price+in+Pakistan%2C+Specifications%2C+Features_-_16523.webp" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>Q3310 Mini</p>
+          <p> Rs. 1,599</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://pricematch.pk/uploadedstuff/productimages/32-QMobile-i2-Pro-8-GB.jpg" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> Noir i2 Pro</p>
+          <p> Rs. 6,500</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbzK_7W_DtvCbzaL-Au-3mwhyIbmCPNM9uTQ&s" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p>150</p>
+          <p> Rs. 4,899</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://www.phoneworld.com.pk/wp-content/uploads/2016/12/S270-ID.jpg" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>S270</p>
+          <p> Rs. 1,725</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsM-m_caHswDzKMGk5KT24XXPE6_Fy79Ehm-4NW0-M42RijAjJXCdsl67uI7W1SceHLqM&usqp=CAU" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> Noir X700 Pro Lite</p>
+          <p>Rs. 7,500</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://compareprice.pk/wp-content/uploads/2019/09/qmobile-noir-j5-price.jpg" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>Noir J5</p>
+          <p>Rs. 9,999</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPwjgd3g_L-y5x2Bcw6nAv_OUJaxPyQnardg&s" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> D3</p>
+          <p> Rs. 1,649</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/nokia-216-pakistan-priceoye-9vtd0-270x270.webp" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>Nokia</h5>
+          <p>216</p>
+          <p>Rs. 5,849</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZnym_fHB4xwIwJVQsL9lkEOp57cKnSuU3FQ&s" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> E400 Pro</p>
+          <p> Rs. 1,550</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://mobiles.dailypakistan.com.pk/wp-content/uploads/2020/10/le01.jpg" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>Lenovo</h5>
+          <p>Vibe B</p>
+          <p>Rs. 9,500</p>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-card">
+      <div class="card">
+        <img src="https://image.coolblue.nl/600x315/products/709458" class="card-img-top" alt="QMobile Keypad">
+        <div class="card-body">
+          <h5>Alcatel</h5>
+          <p> Pixi 4 6</p>
+          <p>Rs. 10,000</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0pHpG4KDegMwmDmZOvkqPXfTePAZ7JABTmg&s" class="card-img-top" alt="Oppo Keypad">
+        <div class="card-body">
+          <h5>Lenovo</h5>
+          <p>Vibe C</p>
+          <p>Rs. 8,999 </p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/qmobile-noir-x32-pakistan-priceoye-500x500.webp" class="card-img-top" alt="Infinix Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p> Noir X32</p>
+          <p> Rs. 5,500</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://welectronics.com/images/stories/virtuemart/product/i2-POWER-ID.jpg" class="card-img-top" alt="Vivo Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>  Noir i2</p>
+          <p> Rs. 6,990</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://cdn.homeshopping.pk/product_images/g/277/W15__93838_zoom.png" class="card-img-top" alt="Alcatel Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>  Noir W15</p>
+          <p>  Rs. 5,050</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.priceoye.pk/qmobile-noir-w50-dual-sim-pakistan-priceoye-500x500.webp" class="card-img-top" alt="Realme Keypad">
+        <div class="card-body">
+          <h5>QMobile</h5>
+          <p>Noir W50</p>
+          <p> Rs. 6,900</p>
+        </div>
+      </div>
+    </div>
+    <div class="letset-news">
+      <h2>Latest Mobiles Versions (2025)</h2>
+  </div>
+  <!-- First Row: 4 Cards -->
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://m.media-amazon.com/images/I/614qofPV+eL.jpg" class="card-img-top1" alt="iPhone 16">
+        <div class="card-body1">
+          <h5 class="card-title1">iPhone 16</h5>
+          <p class="card-text1">The iPhone 16 introduces a 6.3-inch OLED display, powered by Apple's A18 chip. With improved battery life, advanced camera features, and USB-C charging, it offers an impressive upgrade to the iPhone lineup.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEIiIikAHEB6jzHOgq5pyWBkwQKR6ACQQ05g&s" class="card-img-top1" alt="Samsung Galaxy S24">
+        <div class="card-body1">
+          <h5 class="card-title1">Samsung Galaxy S24</h5>
+          <p class="card-text1">Samsung's Galaxy S24 offers a next-gen Snapdragon 8 Gen 3 chipset, enhanced 200MP camera, and a 6.8-inch Dynamic AMOLED display. Expect 5G support, longer battery life, and faster charging capabilities.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://cdn.dxomark.com/wp-content/uploads/medias/post-176677/Google-Pixel-9-Pro-XL_featured-image-packshot-review.png" class="card-img-top1" alt="Google Pixel 9">
+        <div class="card-body1">
+          <h5 class="card-title1">Google Pixel 9</h5>
+          <p class="card-text1">The Pixel 9 brings cutting-edge AI and computational photography to a new level, powered by Google's Tensor G3 chipset. Expect exceptional performance, a 120Hz OLED display, and exclusive AI-based features for photography.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://img.drz.lazcdn.com/g/kf/S20d0af9eee464a5ebf0bcbbcef8d5457Q.jpg_720x720q80.jpg_.webp" class="card-img-top1" alt="OnePlus 12">
+        <div class="card-body1">
+          <h5 class="card-title1">OnePlus 12</h5>
+          <p class="card-text1">OnePlus 12 features the latest Snapdragon 8 Gen 3 processor, 120Hz Fluid AMOLED display, and an impressive Hasselblad-enhanced triple camera setup. With ultra-fast charging and a sleek design, it's a flagship contender for 2025.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Second Row: 8 Cards -->
+  <div class="row justify-content-center">
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfXU9ClK-y4INzenqbgCWbWGSMT4zt8fFT6w&s" class="card-img-top1" alt="Oppo Find X6 Pro">
+        <div class="card-body1">
+          <h5 class="card-title1">Oppo Find X6 Pro (2025)</h5>
+          <p class="card-text1">The Oppo Find X6 Pro comes with a 6.8-inch AMOLED display, powered by the Snapdragon 8 Gen 4 chipset. It features a 200MP camera setup, fast charging, and a sleek, premium design perfect for 2025's flagship lineup.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://img.global.news.samsung.com/global/wp-content/uploads/2024/07/Samsung-Mobile-Galaxy-Unpacked-2024-Galaxy-Z-Fold6-and-Z-Flip6-Official-press-release_Main1.jpg" class="card-img-top1" alt="Samsung Galaxy Z Flip 6">
+        <div class="card-body1">
+          <h5 class="card-title1">Samsung Galaxy Z Flip 6 </h5>
+          <p class="card-text1">The Galaxy Z Flip 6 features an improved 6.7-inch foldable Dynamic AMOLED display, Snapdragon 8 Gen 3 chipset, and a more durable hinge. This flagship foldable offers 5G connectivity and enhanced performance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://i.gadgets360cdn.com/large/14_ultra_xiaomi_1723100712002.jpg" class="card-img-top1" alt="Xiaomi 15 Ultra">
+        <div class="card-body1">
+          <h5 class="card-title1">Xiaomi 15 Ultra (2025)</h5>
+          <p class="card-text1">The Xiaomi 15 Ultra is equipped with a 6.9-inch AMOLED display, Snapdragon 8 Gen 3 chipset, and a 200MP primary camera. It's designed for power users who demand a stunning screen and top-tier performance.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card1" style="width: 18rem;">
+        <img src="https://www.gizchina.com/wp-content/uploads/images/2023/02/imagem_2023-02-09_142656407-1024x1024.png" class="card-img-top1" alt="Realme GT 3 Pro">
+        <div class="card-body1">
+          <h5 class="card-title1">Realme GT 3 Pro (2025)</h5>
+          <p class="card-text1">The Realme GT 3 Pro offers a 6.7-inch AMOLED display with a 120Hz refresh rate, powered by the Snapdragon 8 Gen 3 processor. With a 100MP camera and 150W fast charging, it’s a powerful flagship for 2025.</p>
+        </div>
+      </div>
+    </div>
+    <div class="product-list">
+      <div class="product-header">
+        <h4>Latest Mobile Phones Models</h4>
+        <h4>Price</h4>
+      </div>
+      <div class="product-item">
+        <p>Xiaomi Redmi Note 14 Pro 12GB</p>
+        <p>Rs. 94999</p>
+      </div>
+      <div class="product-item">
+        <p>Xiaomi Redmi Note 14 256GB</p>
+        <p>Rs. 57999</p>
+      </div>
+      <div class="product-item">
+        <p>Xiaomi Redmi Note 14</p>
+        <p>Rs. 53999</p>
+      </div>
+      <div class="product-item">
+        <p>Xiaomi Redmi Note 14 Pro Plus</p>
+        <p>Rs. 144999</p>
+      </div>
+      <div class="product-item">
+        <p>Xiaomi Redmi Note 14 Pro</p>
+        <p>Rs. 79999</p>
+      </div>
+      <div class="product-item">
+        <p>Vivo Y200</p>
+        <p>Rs. 65999</p>
+      </div>
+      <div class="product-item">
+        <p>itel A80</p>
+        <p>Rs. 22499</p>
+      </div>
+      <div class="product-item">
+        <p>Xiaomi Poco X7 Pro</p>
+        <p>Rs. 139999</p>
+      </div>
+      <div class="product-item">
+        <p>SEGO Zero 50</p>
+        <p>Rs. 49999</p>
+      </div>
+      <div class="product-item">
+        <p>SEGO Smart 9 HD</p>
+        <p>Rs. 14999</p>
+      </div>
+    </div>
+    <div>
+      <footer class="footercolor">
+        <div class="container">
+            <div class="row text-center text-md-start align-items-start">
+                <div class="col-md-4 mb-4">
+                    <div>
+                        <h2 class="footer-brand mb-3">AskMe Mobile</h2>
+                    </div>
+                    <h5>About Us</h5>
+                    <p>
+                        We are dedicated to providing quick, reliable answers for all your
+                        mobile and tech-related queries. Join us to explore more!
+                    </p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                      <li><a href="index.html">Home</a></li>
+                      <li><a href="mobile.html">Mobile Phones</a></li>
+                      <li><a href="comparision.html">Comparision</a></li>
+                      <li><a href="features.html">Feature</a></li>
+                      <li><a href="contact2.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Contact Us</h5>
+                    <address>
+                      Address of the Company: A-65, ACME Co., Street no 12, New York<br><br>
+                       <p>Phone Numbers: +001-28272300, 2466, 2469</p>
+                       Email Address: <a href="webmaster@cellinfo.com" class="text-light">webmaster@cellinfo.com</a>
+                    </address>
+                    <div class="social-icons mt-3">
+                        <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <small>&copy; 2025 AskMe Mobile. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+    </div>
+    <script>
+      function searchBrand(event) {
+          event.preventDefault(); // Prevent default form submission
+  
+          let searchQuery = document.getElementById("searchInput").value.toLowerCase().trim(); // Get input value
+  
+          // Define available brand pages (ensuring correct URL mapping)
+          const brandPages = {
+              "apple": "/brands/Apple.html",
+              "samsung": "/brands/sumsung1.html",
+              "nokia": "/brands/nokia.html",
+              "google pixel": "/brands/google pixel.html",
+              "vivo": "/brands/vivo.html",
+              "tecno": "/brands/techno.html",
+              "huawei": "/brands/huawei.html",
+              "infinix": "/brands/infinix.html",
+              "xiaomi": "/brands/xiaomi.html"
+          };
+  
+          // Check if the searched brand exists in the list
+          if (brandPages[searchQuery]) {
+              window.location.href = brandPages[searchQuery]; // Redirect to the respective brand page
+          } else {
+              alert("Brand not found! Please enter a valid brand name.");
+          }
+      }
+  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

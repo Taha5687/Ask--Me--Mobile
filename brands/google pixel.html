@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+   <style>
+      /* Styling for the navbar */
+      .navbar-brand {
+        font-weight: bold;
+        color: #007bff;
+      }
+
+      .navbar-brand:hover {
+        color: black;
+      }
+
+      /* Buttons and links styling */
+      .nav-link {
+        margin: 5px 10px; /* Add spacing between links */
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        background-color: gray;
+        color: #fff !important;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      /* Search bar adjustments */
+      .form-control {
+        width: 300px;
+        transition: width 0.4s ease-in-out;
+      }
+
+      .form-control:focus {
+        width: 350px;
+        outline: none;
+      }
+
+      /* Responsive search bar for smaller screens */
+      @media (max-width: 768px) {
+        .form-control {
+          width: 250px;
+        }
+      }
+      .video-background {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        /* Ensure the video fills the entire background */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Centering the content inside the video container */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;  /* Make the text white for better visibility */
+}
+
+/* Optional: Adjust heading and paragraph styling */
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 1em 0;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ff5733;  /* Adjust color as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #c0392b;
+}
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel-inner img {
+      height: 450px;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .carousel-caption p {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #000;
+      border-radius: 50%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      gap: 1px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+
+    .header img {
+      max-width: 80px; /* Adjust the logo size */
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column; /* Stacks the items vertically on smaller screens */
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .mobile-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.card-body {
+    padding: 16px;
+    background-color: #fff;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #555;
+}
+.coming-soon h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Makes font size responsive */
+    font-weight: bold; /* Makes the text bold */
+    text-align: center; /* Centers the text */
+    margin: 0 auto; /* Ensures proper centering with margins */
+}
+.se4 h1 {
+    font-size: clamp(2rem, 4vw, ); /* Responsive font size */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    margin: 0 auto; /* Ensures proper centering */
+}
+.card1 {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body1 h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-body1 p {
+  font-size: 0.9rem;
+  padding: 30px;
+  color: #555;
+}
+
+.card-img-top1 {
+  border-radius: 8px 8px 0 0;
+  height: 180px;
+  object-fit: cover;
+}
+.card-img-top1 {
+  width: 100%; /* Ensures the image covers the entire card width */
+  height: 200px; /* Sets a consistent height for all images */
+  object-fit: cover; /* Makes sure images maintain aspect ratio and fill the container */
+  border-radius: 8px 8px 0 0; /* Adds rounded corners to the top of the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adds smooth transition effects */
+}
+
+.card-img-top1:hover {
+  transform: scale(1.05); /* Slight zoom-in effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow on hover */
+}
+.letset-news{
+  text-align: center;
+  font-weight: bold;
+}
+.latest-news h3 {
+  font-family: 'Arial', sans-serif; /* Choose a modern font */
+  font-size: 2rem; /* Set the font size */
+  font-weight: bold; /* Make the heading bold */
+  color: #333; /* Set the text color */
+  text-align: center; /* Center align the heading */
+  margin-top: 20px; /* Add some space at the top */
+  margin-bottom: 20px; /* Add some space at the bottom */
+  letter-spacing: 1px; /* Add a slight letter-spacing for better readability */
+  text-transform: uppercase; /* Optional: Make the text uppercase */
+}
+
+.latest-news {
+  width: 100%; /* Make sure the container takes full width */
+  padding: 20px 0; /* Add padding for top and bottom */
+}
+/* Container styling */
+.lateset-phones {
+  display: flex;                      /* Use flexbox layout */
+  justify-content: center;            /* Center content horizontally */
+  align-items: center;                /* Center content vertically */
+  gap: 20px;                          /* Space between the h4 elements */
+  padding: 20px;                      /* Padding around the container */
+  background-color: #f4f4f4;          /* Light gray background */
+  border-radius: 10px;                /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 80%;                     /* Max width to avoid it being too wide */
+  margin: 0 auto;                     /* Center the container in the page */
+}
+
+/* Styling for h4 elements */
+.lateset-phones h4 {
+  margin: 0;                          /* Remove default margin */
+  padding: 10px 20px;                 /* Add padding around the text */
+  font-family: 'Arial', sans-serif;   /* Set a clean font */
+  font-weight: bold;                  /* Bold text */
+  font-size: 18px;                    /* Set font size */
+  color: #333;                        /* Dark gray text color */
+  background-color: #fff;             /* White background for each h4 */
+  border-radius: 5px;                 /* Rounded corners for h4 */
+  text-align: center;                 /* Center text inside h4 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for h4 */
+}
+
+/* Additional responsive design for smaller screens */
+@media (max-width: 600px) {
+  .lateset-phones {
+    flex-direction: column;           /* Stack the items vertically on small screens */
+    gap: 10px;                        /* Reduce gap */
+  }
+
+  .lateset-phones h4 {
+    font-size: 16px;                  /* Adjust font size for smaller screens */
+    padding: 8px 15px;                /* Adjust padding */
+  }
+}
+.lateset-phones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lateset-phones h4 {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes padding */
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect on product row */
+.product-item:hover {
+  background-color: #f1f1f1; /* Light background on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Responsive design: Stack product name and price vertically on small screens */
+@media (max-width: 600px) {
+  .product-item {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align text to the left */
+  }
+
+  .product-header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: flex-start; /* Align header items to the left */
+  }
+
+  .product-item p {
+    margin: 5px 0; /* Adjust spacing for stacked items */
+  }
+}
+/* General Footer Styles */
+.footercolor {
+    background-color: #343536;  /* Gray background */
+    color: #ffffff;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer container */
+.footercolor .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Flexbox settings for the rows */
+.footercolor .row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Column styling for each section */
+.footercolor .col-md-4 {
+    flex: 1;
+    margin-bottom: 20px;
+    max-width: 33.33%; /* Each column takes 1/3 of the space on medium screens */
+    padding: 0 15px;
+}
+
+/* Footer Brand */
+.footercolor h2.footer-brand {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Section titles */
+.footercolor h5 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Links */
+.footercolor a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footercolor a:hover {
+    color: #0d6efd; /* Bootstrap primary color */
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.footercolor .social-icons a {
+    font-size: 1.5rem; /* Increased size for better visibility */
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footercolor .social-icons a:hover {
+    color: #0d6efd;
+}
+
+/* Footer Bottom Text */
+.footercolor small {
+    font-size: 20px;
+    color: #fffefe;
+
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footercolor .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footercolor .col-md-4 {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For mobile screens */
+    .footercolor .text-md-start {
+        text-align: center;
+    }
+
+    .footercolor .col-md-4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footercolor .social-icons {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    #backToTop {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+}
+
+/* For smaller devices like mobile */
+@media (max-width: 576px) {
+    .footercolor h2.footer-brand {
+        font-size: 1.5rem;
+    }
+
+    .footercolor h5 {
+        font-size: 1rem;
+    }
+
+    .footercolor p, 
+    .footercolor address {
+        font-size: 0.8rem;
+    }
+
+    .footercolor small {
+        font-size: 0.7rem;
+    }
+}
+.download-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 10px;
+    font-weight: bold;
+    color:rgba(0, 0, 0, 0.719);
+    background:rgba(128, 128, 128, 0.726);
+    border: 2px solid #fff; /* White Outline Always */
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+.download-btn {
+    border: 2px solid transparent; /* No outline initially */
+}
+
+.download-btn:hover {
+    border-color: #fff; /* White outline on hover */
+}
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AskMe Mobile</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/mobile.html">Mobile Phones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/comparision.html">Comparision</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/features.html">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact2.html">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Brands
+            </a>
+            <ul class="dropdown-menu">     
+              <li><a class="dropdown-item" href="/brands/Apple.html">Apple</a></li>
+              <li><a class="dropdown-item" href="/brands/sumsung1.html">Samsung</a></li>
+              <li><a class="dropdown-item" href="/brands/nokia.html">Nokia</a></li>
+              <li><a class="dropdown-item" href="/brands/google pixel.html">Google Pixel</a></li>
+              <li><a class="dropdown-item" href="/brands/vivo.html">Vivo</a></li>
+              <li><a class="dropdown-item" href="/brands/techno.html">Tecno</a></li>
+              <li><a class="dropdown-item" href="/brands/huawei.html">Huawei</a></li>
+              <li><a class="dropdown-item" href="/brands/infinix.html">Infinix</a></li>
+              <li><a class="dropdown-item" href="/brands/xiaomi.html">Xiaomi</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+        <form class="d-flex" role="search" onsubmit="return searchBrand(event)">
+          <input class="form-control me-2" type="search" id="searchInput" placeholder="Search Brand" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+    </div>
+</nav>
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="https://media.wired.com/photos/651c68d69132e1b7f804211c/master/pass/Google-Pixel-8-Event-Gear.jpg" class="d-block w-100" alt="Vivo Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Google Pixel 8</h5>
+          <p>The Google Pixel 8 features a 6.2-inch Actua OLED display with a 120Hz refresh rate, powered by the Google Tensor G3 chip. It boasts an improved AI-powered camera system, 7 years of software updates, and enhanced security features like Face Unlock and VPN by Google One. 🚀</p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="https://udaipurkiran.com/wp-content/uploads/2024/05/Google-Pixel-10.jpg" class="d-block w-100" alt="Xiaomi Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Google Pixel 10Pro</h5>
+          <p>
+            The Google Pixel 10 Pro is anticipated to feature a 6.7-inch LTPO OLED display with a 120Hz refresh rate, powered by the Google Tensor G3 chipset. It is expected to offer a triple rear camera setup (50MP main, 48MP ultra-wide, 48MP telephoto with 5x optical zoom) and a 10.5MP front camera. Additional features may include a 5,050mAh battery with 30W fast charging and storage options up to 1TB.             
+          </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://www.alezay.com/wp-content/uploads/2021/11/GOOGLE-PIXEL-6-PRO-5G-MAIN-BANNER-ALEZAY-KUWAIT.jpg" class="d-block w-100" alt="Samsung Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Google Pixcel 6Pro</h5>
+          <p>Google Pixel 6 Pro features a 6.7" LTPO OLED display, Google Tensor chip, and a 50MP triple-camera system. It offers AI-powered photography, smooth 120Hz refresh rate, and all-day battery life..
+          </p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="header">
+    <h1>Google Pixel</h1>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK2csLHneCaxl1q1SSwf5M49vjbQGLb_MrpQ&s" alt="Apple Logo">
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://cellmart.pk/wp-content/uploads/2024/07/ajuhaegabuaguagja.jpg" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Google Pixel  </h5>
+        <p>8 Pro</p>
+        <p> 154,999</p>
+       
+    <div class="btn-container">
+      <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+  </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://d1iv6qgcmtzm6l.cloudfront.net/products/lg_ouRHmJ3gI4U7dZIvZdgjeC9dyshsdTBzyagLXeb1.jpg" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Google Pixel</h5>
+        <p> 8</p>
+        <p> 163,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.mobiledokan.com/media/google-pixel-7-official-image.webp" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Google Pixel</h5>
+        <p>  7 Pro</p>
+        <p>137,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.proximus.be/dam/jcr:30bcfe7d-9bb8-473a-b105-b1c8346fa8ed/cdn/sites/iportal/images/products/device/p/px-google-pixel-8-pro-128gb-obsidia/detail/px-google-pixel-8-pro-128gb-obsidia-XS-1~2023-12-29-10-24-45~cache.png" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Google Pixel  </h5>
+        <p>7</p>
+        <p>Rs. 144,999,</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.gizmochina.com/wp-content/uploads/2021/08/b-1-500x500.jpg" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Google Pixel</h5>
+        <p>6 Pro</p>
+        <p> Rs 124,999 </p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://whatmobiles.net.pk/wp-content/uploads/2024/12/Google-Pixel-6-Price-in-Pakistan-1-600x600.jpg" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p> 6</p>
+        <p>Rs 32,000</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://mobiles.dailypakistan.com.pk/wp-content/uploads/2022/03/Google-Pixel-5-400x400.jpg" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>5</p>
+        <p>Rs 32,500</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://fonezone.me/cdn/shop/products/CFD.jpg?v=1725347230" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>4a 5G</p>
+        <p>Rs 55,500</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.cnet.com/a/img/resize/99d0a5a38ef1384e2a6e0395084205b4e22fac99/hub/2020/11/13/ca1bc7d3-707e-45ee-a4bd-257c94a27706/pixel-4a-barely-blue.png?auto=webp&fit=crop&height=1200&width=1200" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>4a</p>
+        <p>Rs 116,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.priceoye.pk/google-pixel-4-xl-pakistan-priceoye-zqway-500x500.webp" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>4 XL</p>
+        <p>Rs 254,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://onlinehafeezcenter.com/wp-content/uploads/2024/11/google-pixel-3a-xl-pakistan-priceoye-5nwls.jpg" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>3a XL</p>
+        <p>Rs 59,999.</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://zoneofdeals.com/wp-content/uploads/2022/02/Google-pixel-A3_3.jpg" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Google Pixel</h5>
+        <p> 3a</p>
+        <p>Rs. 25,000</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://images.priceoye.pk/google-pixel-3-pakistan-priceoye-gjax8-500x500.webp" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p> 3</p>
+        <p> Rs 130,300</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://directories.parhlo.com/public/assets-pd-prices/uploads/mobile/Untitled%20design%20-%202022-11-19T113931.webp" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>2 XL </p>
+        <p>Rs. 97,990</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://mobileget.pk/wp-content/uploads/Google-Pixel-2.webp" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Google Pixel</h5>
+        <p> 2</p>
+        <p>Rs 79,390</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.didongmy.com/vnt_upload/product/08_2024/thumbs/(600x600)_google_pixel_9_pro_xl_5g_obsidian_didongmy_thumb_600x600_1.jpg" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Google Pixel</h5>
+        <p> XL</p>
+        <p>Rs. 49,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images-cdn.ubuy.co.in/644bb6a5366f3f10271104c8-google-pixel-6-pro-5g-512gb-g8vou.jpg" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>Google </h5>
+        <p>Pixel</p>
+        <p>₨ 49,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://s3b.cashify.in/gpro/uploads/2021/09/11152942/google-pixel-fold-back.jpg" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>Fold</p>
+        <p>Rs 140,000 </p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://jumbotech.pk/cdn/shop/files/Google-Pixel-7a-4-1.jpg?v=1688287552" class="card-img-top" alt="QMobile Keypad">
+      <div class="card-body">
+        <h5>Google Pixel
+         </h5>
+        <p>  7a</p>
+        <p>Rs 62,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://mobilemall.pk/public_html/images/product/product_1637651934Google-Pixel-6a-price-.jpg" class="card-img-top" alt="Oppo Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>6a</p>
+        <p>Rs. 86,499</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://propakistani.pk/price/wp-content/uploads/2020/01/google-pixel-5.png" class="card-img-top" alt="Infinix Keypad">
+      <div class="card-body">
+        <h5>Google Pixel </h5>
+        <p>5a</p>
+        <p>Rs 84,999 </p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images-cdn.ubuy.co.in/651e1cdf997a536aed735f24-google-pixel-8-pro-unlocked-android.jpg" class="card-img-top" alt="Vivo Keypad">
+      <div class="card-body">
+        <h5>Pixel 8</h5>
+        <p> 5G</p>
+        <p>Rs 186,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://i5.walmartimages.com/seo/Pre-Owned-Google-Pixel-3XL-64GB-Black-Unlocked-Refurbished-Good_b7fd3135-e813-49f5-aeeb-27ad1a5a2d20_1.f83cb4cec7f361741c3713ae58663754.jpeg" class="card-img-top" alt="Alcatel Keypad">
+      <div class="card-body">
+        <h5>  Google Pixcel</h5>
+        <p>3XL</p>
+        <p>Rs 145,700</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://ghost-armor.com/media/catalog/product/cache/b364ca7b96ca47e9732299f5b78474d1/p/i/pixel_1_1.png" class="card-img-top" alt="Realme Keypad">
+      <div class="card-body">
+        <h5>google pixel </h5>
+        <p>1</p>
+        <p>Rs 64,399</p>
+        <div class="btn-container">
+          <a href="/brands feature/Google pixe.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div><br><br>
+  <div class="se4">
+    <h1> Google Pixel News</h1>
+  </div><br><br>
+  <div class="container">
+    <!-- First Row: 3 Cards -->
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://i.ebayimg.com/images/g/O6QAAOSwEkRmvHO7/s-l1200.jpg" class="card-img-top1" alt="iPhone 16">
+          <div class="card-body1">
+            <p class="card-text1">The Google Pixel 9 Pro and Google Pixel Fold have not been officially released as of now, and people expect features such as:</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://bsmedia.business-standard.com/_media/bs/img/article/2023-05/05/full/1683255577-8134.png?im=FeatureCrop,size=(826,465)" class="card-img-top1" alt="Samsung Galaxy S24">
+          <div class="card-body1">
+            <p class="card-text1">The Pixel Fold aims to bring Google's software expertise to the foldable phone market with premium build quality and innovation.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://fdn.gsmarena.com/imgroot/static/headers/makers/google-2023-1.jpg" class="card-img-top1" alt="Google Pixel 9">
+          <div class="card-body1">
+            <p class="card-text1">The Google Pixel 7 Pro has a 6.7-inch OLED display, Tensor G2 chip, and a 50MP main camera. It offers 5G connectivity, a 5000mAh battery, and runs Android 13.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Second Row: 3 Cards -->
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://akm-img-a-in.tosshub.com/indiatoday/images/media_bank/202309/pixel-8-280000-16x9.jpeg?VersionId=8fZh.D8NkuKeOi35fNxqEy8xDAMfeZE4&size=690:388" class="card-img-top1" alt="OnePlus 12">
+          <div class="card-body1">
+            <p class="card-text1">The Google Pixel 8 Pro features a 6.7-inch OLED display, Google Tensor G3 chip, and advanced camera capabilities with a 50MP main sensor. It also supports 5G, has improved AI-driven features, and runs on Android 14.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://miro.medium.com/v2/resize:fit:1400/0*mOpmbBrXEQ1UgVXp" class="card-img-top1" alt="Oppo Find X6 Pro">
+          <div class="card-body1">
+            <p class="card-text1">The Google Pixel 6 features a 6.4-inch AMOLED display, Google Tensor chip, and a 50MP main camera with advanced AI-driven photography. It offers 5G connectivity and runs on Android 12, delivering a smooth and efficient user experience.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://www.notebookcheck.net/fileadmin/Notebooks/News/_nc4/tensor-g6-stuff-new.jpg" class="card-img-top1" alt="Samsung Galaxy Z Flip 6">
+          <div class="card-body1">
+            <h5 class="card-title1"></h5>
+            <p class="card-text1">The Google Pixel 11 is expected to feature a powerful Tensor chip and improved camera technology. It will likely offer an upgraded display and enhanced AI capabilities for better performance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><div class="product-list">
+    <div class="product-header">
+      <h4>Latest Mobile Phones Models</h4>
+      <h4>Price</h4>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro 12GB</p>
+      <p>Rs. 94999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 256GB</p>
+      <p>Rs. 57999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14</p>
+      <p>Rs. 53999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro Plus</p>
+      <p>Rs. 144999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro</p>
+      <p>Rs. 79999</p>
+    </div>
+    <div class="product-item">
+      <p>Vivo Y200</p>
+      <p>Rs. 65999</p>
+    </div>
+    <div class="product-item">
+      <p>itel A80</p>
+      <p>Rs. 22499</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Poco X7 Pro</p>
+      <p>Rs. 139999</p>
+    </div>
+    <div class="product-item">
+      <p>SEGO Zero 50</p>
+      <p>Rs. 49999</p>
+    </div>
+    <div class="product-item">
+      <p>SEGO Smart 9 HD</p>
+      <p>Rs. 14999</p>
+    </div>
+  </div>
+  <div>
+    <footer class="footercolor">
+      <div class="container">
+          <div class="row text-center text-md-start align-items-start">
+              <div class="col-md-4 mb-4">
+                  <div>
+                      <h2 class="footer-brand mb-3">AskMe Mobile</h2>
+                  </div>
+                  <h5>About Us</h5>
+                  <p>
+                      We are dedicated to providing quick, reliable answers for all your
+                      mobile and tech-related queries. Join us to explore more!
+                  </p>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/mobile.html">Mobile Phones</a></li>
+                    <li><a href="/comparision.html">Comparision</a></li>
+                    <li><a href="/features.html">Feature</a></li>
+                    <li><a href="/contact2.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5>Contact Us</h5>
+                  <address>
+                    Address of the Company: A-65, ACME Co., Street no 12, New York<br><br>
+                     <p>Phone Numbers: +001-28272300, 2466, 2469</p>
+                     Email Address: <a href="webmaster@cellinfo.com" class="text-light">webmaster@cellinfo.com</a>
+                  </address>
+                  <div class="social-icons mt-3">
+                      <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                      <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                      <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="text-center mt-3">
+              <small>&copy; 2025 AskMe Mobile. All Rights Reserved.</small>
+          </div>
+      </div>
+  </footer>
+  </div>
+   <script>
+    function searchBrand(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let searchQuery = document.getElementById("searchInput").value.toLowerCase().trim(); // Get input value
+
+        // Define available brand pages (ensuring correct URL mapping)
+        const brandPages = {
+            "apple": "/brands/Apple.html",
+            "samsung": "/brands/sumsung1.html",
+            "nokia": "/brands/nokia.html",
+            "google pixel": "/brands/google pixel.html",
+            "vivo": "/brands/vivo.html",
+            "tecno": "/brands/techno.html",
+            "huawei": "/brands/huawei.html",
+            "infinix": "/brands/infinix.html",
+            "xiaomi": "/brands/xiaomi.html"
+        };
+
+        // Check if the searched brand exists in the list
+        if (brandPages[searchQuery]) {
+            window.location.href = brandPages[searchQuery]; // Redirect to the respective brand page
+        } else {
+            alert("Brand not found! Please enter a valid brand name.");
+        }
+    }
+</script>
+  
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

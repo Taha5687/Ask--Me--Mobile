@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Document</title>
+   <style>
+      /* Styling for the navbar */
+      .navbar-brand {
+        font-weight: bold;
+        color: #333;
+      }
+
+      .navbar-brand:hover {
+        color: black;
+      }
+
+      /* Buttons and links styling */
+      .nav-link {
+        margin: 5px 10px; /* Add spacing between links */
+        transition: all 0.3s ease-in-out;
+      }
+
+      .nav-link:hover {
+        background-color: gray;
+        color: #fff !important;
+        border-radius: 5px;
+        padding: 5px 10px;
+      }
+
+      /* Search bar adjustments */
+      .form-control {
+        width: 300px;
+        transition: width 0.4s ease-in-out;
+      }
+
+      .form-control:focus {
+        width: 350px;
+        outline: none;
+      }
+
+      /* Responsive search bar for smaller screens */
+      @media (max-width: 768px) {
+        .form-control {
+          width: 250px;
+        }
+      }
+      .video-background {
+            position: relative;
+            height: 90vh;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .video-background video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        /* Ensure the video fills the entire background */
+.video-background {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Centering the content inside the video container */
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;  /* Make the text white for better visibility */
+}
+
+/* Optional: Adjust heading and paragraph styling */
+.hero-content h1 {
+    font-size: 3em;
+    margin: 0.5em 0;
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin: 1em 0;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #ff5733;  /* Adjust color as needed */
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.search-button:hover {
+    background-color: #c0392b;
+}
+body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .carousel-inner img {
+      height: 450px;
+      object-fit: cover;
+    }
+
+    .carousel-caption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+      padding: 15px;
+    }
+
+    .carousel-caption h5 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #fff;
+    }
+
+    .carousel-caption p {
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: #000;
+      border-radius: 50%;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      gap: 1px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+    }
+
+    .header img {
+      max-width: 80px; /* Adjust the logo size */
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column; /* Stacks the items vertically on smaller screens */
+      }
+
+      .header h1 {
+        font-size: 1.5rem;
+      }
+    }
+    .mobile-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+.card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+    overflow: hidden;
+    width: 200px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
+.card-body {
+    padding: 16px;
+    background-color: #fff;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.card-body p {
+    font-size: 14px;
+    margin: 4px 0;
+    color: #555;
+}
+.coming-soon h2 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem); /* Makes font size responsive */
+    font-weight: bold; /* Makes the text bold */
+    text-align: center; /* Centers the text */
+    margin: 0 auto; /* Ensures proper centering with margins */
+}
+.se4 h1 {
+    font-size: clamp(2rem, 4vw, ); /* Responsive font size */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text */
+    margin: 0 auto; /* Ensures proper centering */
+}
+.card1 {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card1:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-body1 h5 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.card-body1 p {
+  font-size: 0.9rem;
+  padding: 30px;
+  color: #555;
+}
+
+.card-img-top1 {
+  border-radius: 8px 8px 0 0;
+  height: 180px;
+  object-fit: cover;
+}
+.card-img-top1 {
+  width: 100%; /* Ensures the image covers the entire card width */
+  height: 200px; /* Sets a consistent height for all images */
+  object-fit: cover; /* Makes sure images maintain aspect ratio and fill the container */
+  border-radius: 8px 8px 0 0; /* Adds rounded corners to the top of the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adds smooth transition effects */
+}
+
+.card-img-top1:hover {
+  transform: scale(1.05); /* Slight zoom-in effect on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow on hover */
+}
+.letset-news{
+  text-align: center;
+  font-weight: bold;
+}
+.latest-news h3 {
+  font-family: 'Arial', sans-serif; /* Choose a modern font */
+  font-size: 2rem; /* Set the font size */
+  font-weight: bold; /* Make the heading bold */
+  color: #333; /* Set the text color */
+  text-align: center; /* Center align the heading */
+  margin-top: 20px; /* Add some space at the top */
+  margin-bottom: 20px; /* Add some space at the bottom */
+  letter-spacing: 1px; /* Add a slight letter-spacing for better readability */
+  text-transform: uppercase; /* Optional: Make the text uppercase */
+}
+
+.latest-news {
+  width: 100%; /* Make sure the container takes full width */
+  padding: 20px 0; /* Add padding for top and bottom */
+}
+/* Container styling */
+.lateset-phones {
+  display: flex;                      /* Use flexbox layout */
+  justify-content: center;            /* Center content horizontally */
+  align-items: center;                /* Center content vertically */
+  gap: 20px;                          /* Space between the h4 elements */
+  padding: 20px;                      /* Padding around the container */
+  background-color: #f4f4f4;          /* Light gray background */
+  border-radius: 10px;                /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  max-width: 80%;                     /* Max width to avoid it being too wide */
+  margin: 0 auto;                     /* Center the container in the page */
+}
+
+/* Styling for h4 elements */
+.lateset-phones h4 {
+  margin: 0;                          /* Remove default margin */
+  padding: 10px 20px;                 /* Add padding around the text */
+  font-family: 'Arial', sans-serif;   /* Set a clean font */
+  font-weight: bold;                  /* Bold text */
+  font-size: 18px;                    /* Set font size */
+  color: #333;                        /* Dark gray text color */
+  background-color: #fff;             /* White background for each h4 */
+  border-radius: 5px;                 /* Rounded corners for h4 */
+  text-align: center;                 /* Center text inside h4 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for h4 */
+}
+
+/* Additional responsive design for smaller screens */
+@media (max-width: 600px) {
+  .lateset-phones {
+    flex-direction: column;           /* Stack the items vertically on small screens */
+    gap: 10px;                        /* Reduce gap */
+  }
+
+  .lateset-phones h4 {
+    font-size: 16px;                  /* Adjust font size for smaller screens */
+    padding: 8px 15px;                /* Adjust padding */
+  }
+}
+.lateset-phones {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lateset-phones h4 {
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes padding */
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+/* Style for the overall product list container */
+.product-list {
+  display: flex;
+  flex-direction: column; /* Align all items vertically */
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  max-width: 800px; /* Limiting max width for better readability */
+  margin: 0 auto; /* Center the content horizontally */
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* Header for the product list */
+.product-header {
+  display: flex;
+  justify-content: space-between; /* Align headers to opposite ends */
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* Styling for each product row */
+.product-item {
+  display: flex;
+  justify-content: space-between; /* Align product names and prices to opposite ends */
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect on product row */
+.product-item:hover {
+  background-color: #f1f1f1; /* Light background on hover */
+  transform: translateY(-5px); /* Slight lift effect */
+}
+
+/* Product name style */
+.product-item p:first-child {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+}
+
+/* Price style */
+.product-item p:last-child {
+  font-size: 16px;
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+/* Responsive design: Stack product name and price vertically on small screens */
+@media (max-width: 600px) {
+  .product-item {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: flex-start; /* Align text to the left */
+  }
+
+  .product-header {
+    flex-direction: column; /* Stack header elements vertically */
+    align-items: flex-start; /* Align header items to the left */
+  }
+
+  .product-item p {
+    margin: 5px 0; /* Adjust spacing for stacked items */
+  }
+}
+/* General Footer Styles */
+.footercolor {
+    background-color: #343536;  /* Gray background */
+    color: #ffffff;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Footer container */
+.footercolor .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Flexbox settings for the rows */
+.footercolor .row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Column styling for each section */
+.footercolor .col-md-4 {
+    flex: 1;
+    margin-bottom: 20px;
+    max-width: 33.33%; /* Each column takes 1/3 of the space on medium screens */
+    padding: 0 15px;
+}
+
+/* Footer Brand */
+.footercolor h2.footer-brand {
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* Section titles */
+.footercolor h5 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+/* Links */
+.footercolor a {
+    color: #ffffff;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footercolor a:hover {
+    color: #0d6efd; /* Bootstrap primary color */
+    text-decoration: underline;
+}
+
+/* Social Icons */
+.footercolor .social-icons a {
+    font-size: 1.5rem; /* Increased size for better visibility */
+    color: #ffffff;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.footercolor .social-icons a:hover {
+    color: #0d6efd;
+}
+
+/* Footer Bottom Text */
+.footercolor small {
+    font-size: 20px;
+    color: #fffefe;
+
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .footercolor .row {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footercolor .col-md-4 {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* For mobile screens */
+    .footercolor .text-md-start {
+        text-align: center;
+    }
+
+    .footercolor .col-md-4 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .footercolor .social-icons {
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    #backToTop {
+        width: 100%;
+        padding: 15px 0;
+        font-size: 1rem;
+    }
+}
+
+/* For smaller devices like mobile */
+@media (max-width: 576px) {
+    .footercolor h2.footer-brand {
+        font-size: 1.5rem;
+    }
+
+    .footercolor h5 {
+        font-size: 1rem;
+    }
+
+    .footercolor p, 
+    .footercolor address {
+        font-size: 0.8rem;
+    }
+
+    .footercolor small {
+        font-size: 0.7rem;
+    }
+}
+.download-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 10px;
+    font-weight: bold;
+    color:rgba(0, 0, 0, 0.719);
+    background:rgba(128, 128, 128, 0.726);
+    border: 2px solid #fff; /* White Outline Always */
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+}
+.download-btn {
+    border: 2px solid transparent; /* No outline initially */
+}
+
+.download-btn:hover {
+    border-color: #fff; /* White outline on hover */
+}
+    </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">AskMe Mobile</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/mobile.html">Mobile Phones</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/comparision.html">Comparision</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/features.html">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact2.html">Contact Us</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Brands
+            </a>
+            <ul class="dropdown-menu">     
+              <li><a class="dropdown-item" href="/brands/Apple.html">Apple</a></li>
+              <li><a class="dropdown-item" href="/brands/sumsung1.html">Samsung</a></li>
+              <li><a class="dropdown-item" href="/brands/nokia.html">Nokia</a></li>
+              <li><a class="dropdown-item" href="/brands/google pixel.html">Google Pixel</a></li>
+              <li><a class="dropdown-item" href="/brands/vivo.html">Vivo</a></li>
+              <li><a class="dropdown-item" href="/brands/techno.html">Tecno</a></li>
+              <li><a class="dropdown-item" href="/brands/huawei.html">Huawei</a></li>
+              <li><a class="dropdown-item" href="/brands/infinix.html">Infinix</a></li>
+              <li><a class="dropdown-item" href="/brands/xiaomi.html">Xiaomi</a></li>
+            </ul>
+          </li>
+        </ul>
+        
+        <form class="d-flex" role="search" onsubmit="return searchBrand(event)">
+          <input class="form-control me-2" type="search" id="searchInput" placeholder="Search Brand" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+      </div>
+    </div>
+</nav>
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="https://img-cdn.thepublive.com/fit-in/1200x675/filters:format(webp)/pcq/media/media_files/DoaHbVYtbtvaujQXHP0X.jpg" class="d-block w-100" alt="Vivo Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Vivo V40</h5>
+          <p>The vivo V40 features a 6.78-inch AMOLED display with a 120Hz refresh rate, powered by the Snapdragon 7 Gen 3 chipset. It boasts dual 50MP rear cameras with ZEISS optics, a 5,500 mAh battery supporting 80W FlashCharge, and runs on Android 14. </p>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="https://vivonewsroom.b-cdn.net/wp-content/uploads/2024/07/Y-28-Banner-image-Press-Release.jpg" class="d-block w-100" alt="Xiaomi Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>vivo Y28</h5>
+        <p>The vivo Y28 features a 6.68-inch HD+ display with a 90Hz refresh rate, powered by a MediaTek Helio G85 processor. It boasts a 50MP main camera, a 6,000mAh battery with 44W fast charging, and runs on Android 14. </p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="https://i0.wp.com/theventmachine.com/wp-content/uploads/2022/04/c54ba-vivo-v21-5g-coming-to-malaysia.jpg" class="d-block w-100" alt="Samsung Mobile">
+        <div class="carousel-caption d-none d-md-block">
+          <h5></h5>
+          <p>The Vivo V21 series features a 6.44-inch AMOLED display with a 90Hz refresh rate and is powered by the MediaTek Dimensity 800U chipset. It has a 64MP OIS main camera, a 44MP selfie camera with OIS, and a 4000mAh battery with 33W fast charging.          </p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="header">
+    <h1>Vivo</h1>
+    <img src="https://images.seeklogo.com/logo-png/30/2/vivo-logo-png_seeklogo-305395.png" alt="Apple Logo">
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1652152731858/ade2416b90f547a02b0ae50d76f1ffda.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> X80</p>
+        <p>Rs. 169,999</p>
+       
+    <div class="btn-container">
+      <a href="../files/apple.docx" download class="download-btn">Download</a>
+  </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1694786862580/7daa6438d2c6031e92392e5f9eb05cc1.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>V29</p>
+        <p>Rs. 159,999 </p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1661421086520/72e4d74bc5b15f389535f19713ac94da.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  V25</p>
+        <p> Rs. 139,99</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1727077865382/42bb577ab37dc59e62839174699be938.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo </h5>
+        <p>V40</p>
+        <p>  Rs. 139,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDIWnywrF_DmpdkzxSMOQCGHfO0YTfOyhCTj8ca6DGUkVp1DiuRCqdPx5rK1Ee-OJ_nfg&usqp=CAU" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo </h5>
+        <p>  X70 Pro </p>
+        <p> Rs. 139,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiTHaK9IP5X64LmpRTH5G5ZClG0XhX7omcaQ&s" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  V30</p>
+        <p>Rs. 129,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://propakistani.pk/price/wp-content/uploads/2020/12/vivo-x60-pro.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  X60 Pro
+        </p>
+        <p>Rs. 129,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://slickmobile.com.ng/wp-content/uploads/2022/09/368.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> V25e</p>
+        <p>Rs. 109,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1729500438555/750d54c0ff04b1a6d22aa48c142cd796.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  V40e</p>
+        <p> Rs. 99,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.winstore.pk/cdn/shop/products/0NB5zgHCld_3e6e2aa7-6687-4326-88e2-24f9aae0d524.jpg?v=1645681557" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  V23</p>
+        <p>Rs. 99,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://inovi.pk/wp-content/uploads/2023/11/vivoV27e.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> V27e</p>
+        <p>Rs. 99,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://d32n7g8aqsy2ib.cloudfront.net/images/inventoryImages/mXz6YxGTjO47jBaj1715166428428.webp" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> V30e</p>
+        <p>Rs. 95,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://cubeonline.pk/cdn/shop/files/Vivo-Y73-Diamond-Flare-1_640x.png?v=1699426027" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo  </h5>
+        <p> Y73</p>
+        <p> Rs. 89,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://eshopy.in/wp-content/uploads/2023/12/v29e-display-1-600x600.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> V29e</p>
+        <p>Rs. 79,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://images.priceoye.pk/vivo-y35-pakistan-priceoye-5ml4j-500x500.webp" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  Y35</p>
+        <p>Rs. 79,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.shopaholic.pk/cdn/shop/files/vivo-y55-main-image-final_fc65fc4d-ea8a-4855-9225-b872858f9fcf.webp?v=1736072292" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>Y55</p>
+        <p>Rs. 75,499</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.winstore.pk/cdn/shop/products/FjwTaR9OkE.jpg?v=1642161322" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  V23e 256GB</p>
+        <p>   Rs. 69,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1729684149839/d7c0b4fe2d74e2f4f3b9094c6c5e3869.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y200 256GB</p>
+        <p> Rs. 65,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://www.winstore.pk/cdn/shop/products/PYI5Xw8gHP.jpg?v=1642161322" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo
+         </h5>
+        <p>  V23e</p>
+        <p>Rs. 64,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1712112039807/55ac95a3bb24aac4da0a98f3c3236254.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y100 256GB</p>
+        <p>Rs. 61,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.whatmobile.com.pk/admin/images/Vivo/Y36/Vivo-Y36-Image-2.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y36</p>
+        <p>Rs. 59,999 </p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTX9XiYDG5cnRhJcaj0gZ_VRxBx--tAvy8_olL_agc6ot-VDYSxcgfkwdUTDC9k_vSbBAc&usqp=CAU" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> V21</p>
+        <p>   Rs. 59,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://mobilemall.pk/public_html/images/product/product_1637572348c2faef9217dc52a71178fab012477748.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y21</p>
+        <p> Rs. 59,699</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.whatmobile.com.pk/admin/images/Vivo/Y21t/Vivo-Y21t-Image-1.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  Y21t</p>
+        <p>  Rs. 47,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPR_9fhACwLFnYYmoNp_xSmtkhpL_kXaV2IA&s" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  Y28 8GB</p>
+        <p> Rs. 47,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfgXncsRB_94nV9kdduClFr6-eeTkPNYTXhoknjQmruOfgsYqkQK-Ng9I5a3T-OAsiafQ&usqp=CAU" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  V21e</p>
+        <p> Rs. 46,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://d32n7g8aqsy2ib.cloudfront.net/images/inventoryImages/c4jZ3I3nYvwKaWY11704713639543.webp" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y27s</p>
+        <p>Rs. 46,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDIchLLPWr25wjqZDBR7n0Tee41jcizHVFUnOYRQqCJS0V-FhbnbpOaYDEFDDRBcqlEhk&usqp=CAU" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>Y22 128GB</p>
+        <p> Rs. 45,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.metro-online.pk/_next/image?url=https%3A%2F%2Fmetro-b2c.s3.ap-southeast-1.amazonaws.com%2FProducts%2F330694.jpg&w=3840&q=75" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y18 6GB</p>
+        <p>Rs. 42,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://usesinurdu.com/wp-content/uploads/2024/10/product-17259.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y17s 6GB</p>
+        <p>  Rs. 42,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://www.whatmobile.com.pk/admin/images/Vivo/Y20%202021/Vivo-Y20-2021-Image-1.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y20 2021 </p>
+        <p> Rs. 26,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asia-exstatic-vivofs.vivo.com/PSee2l50xoirPK7y/1688711318516/e3d7716652d89e4a27efa301588b56d4.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  Y02t</p>
+        <p> Rs. 24,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.whatmobile.com.pk/admin/images/Vivo/Y01/Vivo-Y01-Image-1.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>   Y01</p>
+        <p>  Rs. 23,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://dashboard.pakmobiles.info/media/vivo-y12s.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  Y12s</p>
+        <p>Rs. 22,499</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://asalbachat.com/wp-content/uploads/2020/10/Vivo-S1-Skyline-Blue.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> S1
+          N/A</p>
+        <p>Rs 35,999</p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://d1iv6qgcmtzm6l.cloudfront.net/products/lg_8FH23QeeMDK6mLyGirjBVhUYJ2pbeaU7S5E0Ojao.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>  Y11 2GB </p>
+        <p> Rs. 17,999 </p>
+        <div class="btn-container">
+          <a href="/brands feature/vivo feature.docx" download class="download-btn">Download</a>
+      </div>
+      </div>
+    </div>
+  </div><br><br>
+  <div class="coming-soon">
+    <h2>Coming Soon Vivo Mobiles</h2>
+  </div><br><br>
+  <div class="mobile-card">
+    <div class="card">
+      <img src="https://technify.pk/wp-content/uploads/2024/11/Vivo-V50e.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> V50e
+          Expected Price </p>
+        <p> Rs. 108,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://technify.pk/wp-content/uploads/2024/11/Vivo-V50.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> V50
+          Expected Price</p> 
+        <p>  Rs. 131,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://shop.lapntab.com/wp-content/uploads/2024/08/Vivo-Y28-2.webp" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> Y200 Plus
+          Expected Price</p>
+        <p> Rs. 49,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://in-exstatic-vivofs.vivo.com/gdHFRinHEMrj3yPG/1728644311845/e45e26ac168715887496499d44f8e9f6.png" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo9</h5>
+        <p>  Y39
+          Expected Price </p>
+        <p>Rs. 64,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.mobiledokan.co/wp-content/uploads/2024/10/Vivo-X200-Natural-Green.webp" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p> X200s
+          Expected Price</p>
+        <p>Rs. 163,999</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="https://www.aysonline.pk/wp-content/uploads/2024/11/lg_mWxvMH99KyNsWUeLtqcCJuhoXbqTR-800x800.jpg" class="card-img-top" alt="">
+      <div class="card-body">
+        <h5>Vivo</h5>
+        <p>Y18t
+          Expected Price</p>
+        <p>Rs. 33,999 </p>
+      </div>
+    </div>
+  </div><br><br>
+  <div class="se4">
+    <h1> Latest Vivo News</h1>
+  </div><br><br>
+  <div class="container">
+    <!-- First Row: 3 Cards -->
+    <div class="row justify-content-center">
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://i0.wp.com/www.smartprix.com/bytes/wp-content/uploads/2024/10/Pickle-Power-PS5-Controller-Battery-23.png?fit=1920%2C1080&ssl=1" class="card-img-top1" alt="iPhone 16">
+          <div class="card-body1">
+            <p class="card-text1">Vivo V50 All Set for February Release; V50 Pro Launch Delayed</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://fonezone.me/cdn/shop/articles/Vivo_V50_Specifications_Launch_Date_Price_-_fonezone.me_3e160060-f28c-4cb6-9024-357e25dca823.jpg?v=1738043357&width=1100" class="card-img-top1" alt="Samsung Galaxy S24">
+          <div class="card-body1">
+            <p class="card-text1">Vivo V50 Cleared for Global Launch After Securing SIRIM Certification</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card1">
+          <img src="https://www.whatmobile.com.pk/control/news/assets/22012025/6e8f882f561c1aa76e559090e17939ff_feat.jpg" class="card-img-top1" alt="Google Pixel 9">
+          <div class="card-body1">
+            <p class="card-text1">Vivo Y200 128GB Variant Now Available in Pakistan with a Budget-Friendly Price.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div><div class="product-list">
+    <div class="product-header">
+      <h4>Latest Mobile Phones Models</h4>
+      <h4>Price</h4>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro 12GB</p>
+      <p>Rs. 94999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 256GB</p>
+      <p>Rs. 57999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14</p>
+      <p>Rs. 53999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro Plus</p>
+      <p>Rs. 144999</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Redmi Note 14 Pro</p>
+      <p>Rs. 79999</p>
+    </div>
+    <div class="product-item">
+      <p>Vivo Y200</p>
+      <p>Rs. 65999</p>
+    </div>
+    <div class="product-item">
+      <p>itel A80</p>
+      <p>Rs. 22499</p>
+    </div>
+    <div class="product-item">
+      <p>Xiaomi Poco X7 Pro</p>
+      <p>Rs. 139999</p>
+    </div>
+    <div class="product-item">
+      <p>SEGO Zero 50</p>
+      <p>Rs. 49999</p>
+    </div>
+    <div class="product-item">
+      <p>SEGO Smart 9 HD</p>
+      <p>Rs. 14999</p>
+    </div>
+  </div>
+  <div>
+    <footer class="footercolor">
+      <div class="container">
+          <div class="row text-center text-md-start align-items-start">
+              <div class="col-md-4 mb-4">
+                  <div>
+                      <h2 class="footer-brand mb-3">AskMe Mobile</h2>
+                  </div>
+                  <h5>About Us</h5>
+                  <p>
+                      We are dedicated to providing quick, reliable answers for all your
+                      mobile and tech-related queries. Join us to explore more!
+                  </p>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5>Quick Links</h5>
+                  <ul class="list-unstyled">
+                    <li><a href="/index.html">Home</a></li>
+                    <li><a href="/mobile.html">Mobile Phones</a></li>
+                    <li><a href="/comparision.html">Comparision</a></li>
+                    <li><a href="/features.html">Feature</a></li>
+                    <li><a href="/contact2.html">Contact</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-4 mb-4">
+                  <h5>Contact Us</h5>
+                  <address>
+                    Address of the Company: A-65, ACME Co., Street no 12, New York<br><br>
+                     <p>Phone Numbers: +001-28272300, 2466, 2469</p>
+                     Email Address: <a href="webmaster@cellinfo.com" class="text-light">webmaster@cellinfo.com</a>
+                  </address>
+                  <div class="social-icons mt-3">
+                      <a href="#" class="text-light me-3"><i class="bi bi-facebook"></i></a>
+                      <a href="#" class="text-light me-3"><i class="bi bi-twitter"></i></a>
+                      <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+                  </div>
+              </div>
+          </div>
+          <div class="text-center mt-3">
+              <small>&copy; 2025 AskMe Mobile. All Rights Reserved.</small>
+          </div>
+      </div>
+  </footer>
+  </div>
+  <script>
+    function searchBrand(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        let searchQuery = document.getElementById("searchInput").value.toLowerCase().trim(); // Get input value
+
+        // Define available brand pages (ensuring correct URL mapping)
+        const brandPages = {
+            "apple": "/brands/Apple.html",
+            "samsung": "/brands/sumsung1.html",
+            "nokia": "/brands/nokia.html",
+            "google pixel": "/brands/google pixel.html",
+            "vivo": "/brands/vivo.html",
+            "tecno": "/brands/techno.html",
+            "huawei": "/brands/huawei.html",
+            "infinix": "/brands/infinix.html",
+            "xiaomi": "/brands/xiaomi.html"
+        };
+
+        // Check if the searched brand exists in the list
+        if (brandPages[searchQuery]) {
+            window.location.href = brandPages[searchQuery]; // Redirect to the respective brand page
+        } else {
+            alert("Brand not found! Please enter a valid brand name.");
+        }
+    }
+</script>
+  
+  
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
